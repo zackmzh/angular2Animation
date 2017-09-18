@@ -3,6 +3,6 @@
 
 
 <button (click)="change()">toggleLight</button>
-<div class="room" [@lightOnOff]="roomState">
+<div class="room" [@lightOnOff]="roomState" (@lightOnOff.start)="animationStart($event)" (@lightOnOff.done)="animationDone($event)">
   <p style="color:red;">hello</p>
 </div>

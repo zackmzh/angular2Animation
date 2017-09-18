@@ -18,7 +18,8 @@ import { Component,
       state('on',style({
         backgroundColor:'white'
       })),
-      transition('off<=>on',[animate('2s',style({transform:'rotate(90deg)'}))])
+      transition('off=>on',[animate('2s',style({transform:'rotate(90deg)'}))]),
+      transition("on=>off",[animate("2s",style({transform:'rotate(-90deg)'}))])
     ])
   ]
 })
@@ -29,4 +30,19 @@ export class AppComponent {
   change(){
     this.roomState = (this.roomState==='off') ? "on" : "off";
   }
+
+  animationStart(event:any){
+    console.log("start");
+    console.log(event.totalTime);
+    console.log(event.fromState);
+    console.log(event.toState);
+  };
+
+  animationDone(event:any){
+    console.log(event.totalTime);
+    console.log(event.fromState);
+    console.log(event.toState);
+    console.log("Done");
+  };
+
 }
