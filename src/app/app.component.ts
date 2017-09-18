@@ -27,6 +27,16 @@ import { Component,
         animate("2s",style({transform:'rotate(-90deg)'})),
         animate("1s",style({width:"30px"}))
       ]))
+    ]),
+    trigger('flyInOut',[
+
+      transition('void=>*',group([
+        animate('2s',style({transform:'translateX(20%)'}))
+        // animate("2s 2s",style({transform:'translateY(30%)'}))
+      ])),
+      transition("*=>void",[
+        animate("1s",style({transform:"translateX(100%)"}))
+      ])
     ])
   ]
 })
