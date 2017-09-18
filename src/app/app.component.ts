@@ -18,8 +18,7 @@ import { Component,
       state('on',style({
         backgroundColor:'white'
       })),
-      transition('off=>on',[animate('2s')]),
-      transition('on=>off',[animate('2s')])
+      transition('off<=>on',[animate('2s',style({transform:'rotate(90deg)'}))])
     ])
   ]
 })
