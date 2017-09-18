@@ -4,6 +4,7 @@ import { Component,
          animate,
          style,
          transition,
+         group
 } from '@angular/core';
 
 @Component({
@@ -18,8 +19,14 @@ import { Component,
       state('on',style({
         backgroundColor:'white'
       })),
-      transition('off=>on',[animate('2s',style({transform:'rotate(90deg)'}))]),
-      transition("on=>off",[animate("2s",style({transform:'rotate(-90deg)'}))])
+      transition('off=>on',group([
+        animate('2s',style({transform:'rotate(90deg)'})),
+        animate("2s 1s",style({opacity:0}))
+      ])),
+      transition("on=>off",group([
+        animate("2s",style({transform:'rotate(-90deg)'})),
+        animate("1s",style({width:"30px"}))
+      ]))
     ])
   ]
 })
